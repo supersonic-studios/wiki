@@ -1,5 +1,11 @@
 extends master.pug
 
+block head
+  if injectCode.css
+    style(type='text/css')!= injectCode.css
+  if injectCode.head
+    != injectCode.head
+
 block body
   #root
     profile

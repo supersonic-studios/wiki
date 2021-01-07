@@ -322,7 +322,14 @@ router.get(['/p', '/p/*'], (req, res, next) => {
   }
 
   _.set(res.locals, 'pageMeta.title', 'User Profile')
-  res.render('profile')
+  const injectCode = {
+    css: WIKI.config.theming.injectCSS,
+    head: WIKI.config.theming.injectHead,
+    body: WIKI.config.theming.injectBody
+  }
+  res.render('profile', {
+    injectCode
+  })
 })
 
 /**
@@ -390,7 +397,14 @@ router.get(['/s', '/s/*'], async (req, res, next) => {
  */
 router.get(['/t', '/t/*'], (req, res, next) => {
   _.set(res.locals, 'pageMeta.title', 'Tags')
-  res.render('tags')
+  const injectCode = {
+    css: WIKI.config.theming.injectCSS,
+    head: WIKI.config.theming.injectHead,
+    body: WIKI.config.theming.injectBody
+  }
+  res.render('tags', {
+    injectCode
+  })
 })
 
 /**
